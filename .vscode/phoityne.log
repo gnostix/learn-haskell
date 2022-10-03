@@ -1,0 +1,13 @@
+2022-10-01 20:53:58.861865000000 [68648(ThreadId 9)] ERROR APP - user error (<getModule> loaded module can not find from path. </Users/gnostix/trees/learn-haskell/app/Main.hs> [("Lib","/Users/gnostix/trees/learn-haskell/src/Lib.hs"),("Main","/Users/gnostix/trees/learn-haskell/test/Spec.hs")])
+2022-10-01 20:54:38.397378000000 [68784(ThreadId 9)] ERROR APP - user error (<getModule> loaded module can not find from path. </Users/gnostix/trees/learn-haskell/app/Main.hs> [("Lib","/Users/gnostix/trees/learn-haskell/src/Lib.hs"),("Main","/Users/gnostix/trees/learn-haskell/test/Spec.hs")])
+2022-10-01 20:55:41.037040000000 [68936(ThreadId 9)] ERROR APP - user error (<getModule> loaded module can not find from path. </Users/gnostix/trees/learn-haskell/app/Main.hs> [("Lib","/Users/gnostix/trees/learn-haskell/src/Lib.hs"),("Main","/Users/gnostix/trees/learn-haskell/test/Spec.hs")])
+2022-10-02 10:58:38.366747000000 [84228(ThreadId 9)] ERROR APP - start debugging failed. user error (ExecResult not found.) : Left "user error (ExecResult not found.)"
+2022-10-02 10:58:54.431687000000 [84228(ThreadId 9)] ERROR APP - user error (<getModule> loaded module can not find from path. </Users/gnostix/trees/learn-haskell/app/Main.hs> [("Lib","/Users/gnostix/trees/learn-haskell/src/Lib.hs")])
+2022-10-02 10:59:24.589493000000 [84305(ThreadId 9)] ERROR APP - [CRITICAL] can not get the initial ghci prompt.
+2022-10-02 11:00:13.649922000000 [84339(ThreadId 9)] ERROR APP - user error (<getModule> loaded module can not find from path. </Users/gnostix/trees/learn-haskell/app/Main.hs> [("Lib","/Users/gnostix/trees/learn-haskell/src/Lib.hs")])
+2022-10-02 11:00:13.686122000000 [84339(ThreadId 9)] ERROR APP - start debugging failed. user error (ExecResult not found.) : Left "user error (ExecResult not found.)"
+2022-10-03 15:29:41.331643000000 [93965(ThreadId 9)] ERROR APP - start debugging failed. user error (ExecResult not found.) : Left "user error (ExecResult not found.)"
+2022-10-03 15:31:38.972909000000 [94065(ThreadId 9)] ERROR APP - start debugging failed. user error (ExecResult not found.) : Left "user error (ExecResult not found.)"
+2022-10-03 15:32:13.594420000000 [94156(ThreadId 9)] ERROR APP - start debugging failed. user error (ExecResult not found.) : Left "user error (ExecResult not found.)"
+2022-10-03 15:32:38.155178000000 [94244(ThreadId 9)] ERROR APP - start debugging failed. user error (ExecResult not found.) : Left "user error (ExecResult not found.)"
+2022-10-03 15:33:11.827119000000 [94326(ThreadId 9)] ERROR APP - start debugging failed. user error (ExecResult not found.) : Left "user error (ExecResult not found.)"
