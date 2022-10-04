@@ -12,6 +12,9 @@ module Lib
     map2D,
     rev,
     prefixes,
+    sum2,
+    sum3,
+    -- isos,
   )
 where
 
@@ -83,4 +86,14 @@ rev = foldl (\acc xs -> xs : acc) []
 
 prefixes :: [a] -> [[a]]
 prefixes = foldr (\x acc  -> [x] : (map ((:) x) acc)) []
+
+sum2 :: Num a => [a] -> a
+sum2 [] = 0
+sum2 (x:xs) = x + sum2 xs 
+
+sum3 :: Num a => [a] -> a
+sum3 = foldr (\acc x -> acc + x) 0
+
+-- isos :: a -> Maybe  a -> a
+-- isos 
 
