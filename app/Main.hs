@@ -4,6 +4,7 @@ import Lib
 import Data.List (nub)
 import qualified Lib
 import Text.Printf (IsChar(toChar))
+import Lib (prefixes)
 
 
 -- lala :: Bool -> String
@@ -51,3 +52,4 @@ main = do
   -- print (map2D (\x -> x + 2), [[1,2,3]])
   print (foldr (\x acc -> if rem x 2 == 0 then acc * x else acc) 1  [1,2,3])
   print( foldr (\x acc -> acc +1) 0 [1,2,3,4,5,6])
+  print (prefixes [1,2,3,4,5])

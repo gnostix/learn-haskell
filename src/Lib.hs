@@ -10,12 +10,15 @@ module Lib
     hasPath,
     myFunc,
     map2D,
+    rev,
+    prefixes,
   )
 where
 
 import Control.Concurrent (yield)
 import Data.Tuple
 import Data.List (sort)
+import Data.List.NonEmpty (xor)
 
 someFunc :: Char -> IO ()
 someFunc str
@@ -74,3 +77,10 @@ myFunc f x = f x
 
 map2D :: (a -> b) -> [[a]] -> [[b]]
 map2D = map . map
+
+rev :: [a] -> [a]
+rev = foldl (\acc xs -> xs : acc) []
+
+prefixes :: [a] -> [[a]]
+prefixes = foldr (\x acc  -> [x] : (map ((:) x) acc)) []
+
