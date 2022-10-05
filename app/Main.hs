@@ -25,8 +25,16 @@ add1 x = x + 1
 add2 :: Int -> Int -> Int
 add2 = (\x -> (\y -> x + y))
 
+f :: Ord a => [a] -> [a]
+f xs = reverse . sort xs
+
 main :: IO ()
 main = do
+  -- putStrLn "Please enter name"
+  -- name <- getLine
+  -- let uname = map toUpper name
+  -- putStrLn name
+
   putStrLn "Hello, Haskell!"
   -- putStrLn isZero 8
   -- print (add 2 5)
@@ -60,10 +68,5 @@ data Person = Person { name :: String,
                        age :: Int }
 data Temp = Kelvin Float | Celsius Float | Fahrenheit Float deriving Show
 
+print ()
 
--- toKelvin :: Temp -> Float
--- toKelvin (Fahrenheit f) = (5/9)*(f-32)+273.15
--- toKelvin (Celsius c) = c+273.15
--- toKelvin (Kelvin k) = k
-
--- print (toKelvin Fahrenheit(100.2))

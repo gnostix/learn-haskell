@@ -14,14 +14,15 @@ module Lib
     prefixes,
     sum2,
     sum3,
-    -- isos,
+    monadd,
+    monadd',
   )
 where
 
 import Control.Concurrent (yield)
 import Data.Tuple
 import Data.List (sort)
-import Data.List.NonEmpty (xor)
+import Data.List.NonEmpty (xor, break)
 
 someFunc :: Char -> IO ()
 someFunc str
@@ -130,5 +131,11 @@ sum2 (x:xs) = x + sum2 xs
 sum3 :: Num a => [a] -> a
 sum3 = foldr (\acc x -> acc + x) 0
 
--- isos :: a -> Maybe  a -> a
--- isos 
+monadd :: (Monad m, Num b) => m b -> m b -> m b
+monadd mx my =  mx >>= (\x -> my >>= (\y -> return $ x + y))
+
+monadd' :: (Monad m, Num b) => m b -> m b -> m b
+monadd' mx my = do
+  x <- mx
+  y <- my
+  return $ x + y

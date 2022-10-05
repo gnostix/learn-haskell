@@ -38,6 +38,7 @@ library
 executable learn-haskell-exe
   main-is: Main.hs
   other-modules:
+      LearnIO
       Paths_learn_haskell
   hs-source-dirs:
       app
