@@ -81,19 +81,38 @@ myFunc f x = f x
 map2D :: (a -> b) -> [[a]] -> [[b]]
 map2D = map . map
 
-rev :: [a] -> [a]
-rev = foldl (\acc xs -> xs : acc) []
+-- lagrange :: [(Float, Float)] -> Float -> Float
+-- lagrange xs x = foldl (\acc (xj,y) -> acc + (y * l xj)) 0
+-- xs
+--   where
+--     l xj = foldl (
+--       \acc (xk, _) ->
+--         if xj==xk then
+--           acc
+--           else
+--             acc * ((x-xk) / (xj-xk))
+--     ) 1 xs
 
-prefixes :: [a] -> [[a]]
-prefixes = foldr (\x acc  -> [x] : (map ((:) x) acc)) []
+data Trie a = Leaf a | Node a [Trie a]
 
-sum2 :: Num a => [a] -> a
-sum2 [] = 0
-sum2 (x:xs) = x + sum2 xs 
+foldtrie :: (b -> a -> b) -> b -> Trie a -> b
+foldtrie f acc (Leaf x) = f acc x
+foldtrie f acc (Node x xs) = foldl f' (f acc x) xs
+  where
+    f' acc t = foldtrie f acc t
 
-sum3 :: Num a => [a] -> a
-sum3 = foldr (\acc x -> acc + x) 0
+    tr =
+      Node
+        'c'
+        [ Node
+            'a'
+            [Leaf 'r', Leaf 't'],
+          Node
+            'o'
+            [ Node
+                'o'
+                [Leaf 'l']
+            ]
+        ]
 
--- isos :: a -> Maybe  a -> a
--- isos 
-
+-- foldtrie =  (\acc x -> if(x == Node) then acc : foldtrie x else acc : x)

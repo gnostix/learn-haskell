@@ -35,26 +35,35 @@ main = do
   -- someFunc 'L'
   -- someFunc 'R'
   -- print (Lib.isAsc' [6,3])
-  -- print (Lib.isAsc' [1,1,6,3,4,4,5])
+  print (isAsc' [1, 1, 6, 3, 4, 4, 5])
   -- print (Lib.isAsc' [1,1,3,4,4,5])
   -- print (Lib.isAsc' [1])
   -- print (Lib.isAsc' [])
   -- let li = [(1,2),(2,3),(3,2),(4,3),(4,5)]
   -- print (Lib.hasPath li 1 4)
 
-  print (myFunc add1 3)
+  -- print (myFunc add1 3 )
   print (myFunc (\x -> x * x) 3)
-  print (map (\a -> a * 2) [1, 2, 3, 4, 5])
-  print (map (uncurry (+)) [(1, 1), (2, 2), (3, 3)])
-  print (filter (\a -> a > 2) [1, 2, 3, 4, 5])
-  -- print (map2D (\x -> x + 2), [[1,2,3]])
-  print (foldr (\x acc -> if rem x 2 == 0 then acc * x else acc) 1 [1, 2, 3])
-  print (foldr (\x acc -> acc + 1) 0 [1, 2, 3, 4, 5, 6])
-  print (prefixes [1, 2, 3, 4, 5])
-  print (sum2 [1, 2, 3, 4, 5, 6, 7])
-  print (sum3 [1, 2, 3, 4, 5, 6, 7])
-  
-  let value1 = 1
-  let result1 = maybe False odd (Just value1)
-  print (result1)
-  print (maybe False (\a -> a / 2 > 2) (Just 10))
+  -- print (map (\a -> a * 2) [1,2,3,4,5])
+  -- print (map (uncurry (+)) [(1,1),(2,2),(3,3)])
+  -- print (filter (\a -> a > 2) [1,2,3,4,5])
+  -- -- print (map2D (\x -> x + 2), [[1,2,3]])
+  -- print (foldr (\x acc -> if rem x 2 == 0 then acc * x else acc) 1  [1,2,3])
+  print
+    (foldr (\x acc -> acc + 1) 0 [1, 2, 3, 4, 5, 6])
+  -- print( hasPath [(1,2),(3,4)])
+  print
+    (foldr (\x acc -> acc + 1) 0 [1, 2, 3, 4, 5, 6])
+
+  -- print(foldtrie (:) [] Node 'c' [Node 'a' [Leaf 'r', Leaf 't'], Node 'o' [Node 'o' [Leaf 'l']]])
+data Person = Person { name :: String,
+                       age :: Int }
+data Temp = Kelvin Float | Celsius Float | Fahrenheit Float deriving Show
+
+
+toKelvin :: Temp -> Float
+toKelvin (Fahrenheit f) = (5/9)*(f-32)+273.15
+toKelvin (Celsius c) = c+273.15
+toKelvin (Kelvin k) = k
+
+print (toKelvin Fahrenheit(100.2))
