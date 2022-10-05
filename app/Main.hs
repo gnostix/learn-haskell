@@ -61,9 +61,9 @@ data Person = Person { name :: String,
 data Temp = Kelvin Float | Celsius Float | Fahrenheit Float deriving Show
 
 
-toKelvin :: Temp -> Float
-toKelvin (Fahrenheit f) = (5/9)*(f-32)+273.15
-toKelvin (Celsius c) = c+273.15
-toKelvin (Kelvin k) = k
+-- toKelvin :: Temp -> Float
+-- toKelvin (Fahrenheit f) = (5/9)*(f-32)+273.15
+-- toKelvin (Celsius c) = c+273.15
+-- toKelvin (Kelvin k) = k
 
-print (toKelvin Fahrenheit(100.2))
+-- print (toKelvin Fahrenheit(100.2))

@@ -116,3 +116,19 @@ foldtrie f acc (Node x xs) = foldl f' (f acc x) xs
         ]
 
 -- foldtrie =  (\acc x -> if(x == Node) then acc : foldtrie x else acc : x)
+
+rev :: [a] -> [a]
+rev = foldl (\acc xs -> xs : acc) []
+
+prefixes :: [a] -> [[a]]
+prefixes = foldr (\x acc  -> [x] : (map ((:) x) acc)) []
+
+sum2 :: Num a => [a] -> a
+sum2 [] = 0
+sum2 (x:xs) = x + sum2 xs 
+
+sum3 :: Num a => [a] -> a
+sum3 = foldr (\acc x -> acc + x) 0
+
+-- isos :: a -> Maybe  a -> a
+-- isos 
