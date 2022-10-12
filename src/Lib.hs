@@ -16,6 +16,8 @@ module Lib
     sum3,
     monadd,
     monadd',
+    cut,
+    inv_tup_tree,
   )
 where
 
@@ -23,6 +25,10 @@ import Control.Concurrent (yield)
 import Data.Tuple
 import Data.List (sort)
 import Data.List.NonEmpty (xor, break)
+import Data.Traversable
+-- import Test.QuickCheck
+
+
 
 someFunc :: Char -> IO ()
 someFunc str
@@ -139,3 +145,19 @@ monadd' mx my = do
   x <- mx
   y <- my
   return $ x + y
+
+
+data Tree a = Leaf' | Node' (Tree a) a  (Tree a) 
+    deriving Show
+
+inv_tup_tree :: Tree(Integer, Integer)
+inv_tup_tree = aux (0, 0)
+  where
+    aux (l,r) = Node' (aux $ (l+1, r)) (l,r) (aux $ (l, r+1))
+
+
+cut :: Integer -> Tree a -> Tree a
+cut 0 _ = Leaf'
+cut n Leaf' = Leaf'
+cut n (Node' l v r) = Node' (cut (n-1) l) v (cut (n-1) r)
+

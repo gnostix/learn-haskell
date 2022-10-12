@@ -25,8 +25,8 @@ add1 x = x + 1
 add2 :: Int -> Int -> Int
 add2 = (\x -> (\y -> x + y))
 
-f :: Ord a => [a] -> [a]
-f xs = reverse . sort xs
+-- f :: Ord a => [a] -> [a]
+-- f xs = reverse . sort xs
 
 main :: IO ()
 main = do
@@ -60,13 +60,16 @@ main = do
   print
     (foldr (\x acc -> acc + 1) 0 [1, 2, 3, 4, 5, 6])
   -- print( hasPath [(1,2),(3,4)])
+  print (monadd (Just 5) (Just 6))
+  print (cut 3 inv_tup_tree)
   print
     (foldr (\x acc -> acc + 1) 0 [1, 2, 3, 4, 5, 6])
+  
 
   -- print(foldtrie (:) [] Node 'c' [Node 'a' [Leaf 'r', Leaf 't'], Node 'o' [Node 'o' [Leaf 'l']]])
 data Person = Person { name :: String,
                        age :: Int }
 data Temp = Kelvin Float | Celsius Float | Fahrenheit Float deriving Show
 
-print ()
+    
 
