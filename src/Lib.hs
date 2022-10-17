@@ -18,12 +18,15 @@ module Lib
     monadd',
     cut,
     inv_tup_tree,
+    insert',
+    inorder,
   )
 where
 
 import Control.Concurrent (yield)
 import Data.Tuple
-import Data.List (sort)
+import Data.List (sort) 
+import Data.List hiding (insert)
 import Data.List.NonEmpty (xor, break)
 import Data.Traversable
 -- import Test.QuickCheck
@@ -56,11 +59,11 @@ asc n m
   | m == n = [m]
   | m > n = n : asc (n + 1) m
 
-nub :: (Eq a) => [a] -> [a]
-nub [] = []
-nub (x : xs)
-  | x `elem'` xs = nub xs
-  | otherwise = x : nub xs
+-- nub :: (Eq a) => [a] -> [a]
+-- nub [] = []
+-- nub (x : xs)
+--   | x `elem'` xs = nub xs
+--   | otherwise = x : nub xs
 
 isAsc :: [Int] -> Bool
 isAsc [] = True
@@ -161,3 +164,13 @@ cut 0 _ = Leaf'
 cut n Leaf' = Leaf'
 cut n (Node' l v r) = Node' (cut (n-1) l) v (cut (n-1) r)
 
+insert' :: (Ord a) => a -> Tree a -> Tree a
+insert' v Leaf' = Node' Leaf' v Leaf'
+insert' v (Node' l vt r)
+  | v <= vt = Node' (insert' v l) vt r
+  | v > vt = Node' l vt (insert' v r)  
+
+inorder :: Tree a -> [a]
+inorder Leaf' = []
+inorder (Node' l v r) = 
+    (inorder l) ++ [v] ++ (inorder r) 

@@ -35,7 +35,7 @@ main = do
   -- let uname = map toUpper name
   -- putStrLn name
 
-  putStrLn "Hello, Haskell!"
+  -- putStrLn "Hello, Haskell!"
   -- putStrLn isZero 8
   -- print (add 2 5)
   -- print (ele 5 [1,2,3])
@@ -43,7 +43,7 @@ main = do
   -- someFunc 'L'
   -- someFunc 'R'
   -- print (Lib.isAsc' [6,3])
-  print (isAsc' [1, 1, 6, 3, 4, 4, 5])
+  -- print (isAsc' [1, 1, 6, 3, 4, 4, 5])
   -- print (Lib.isAsc' [1,1,3,4,4,5])
   -- print (Lib.isAsc' [1])
   -- print (Lib.isAsc' [])
@@ -60,10 +60,14 @@ main = do
   print
     (foldr (\x acc -> acc + 1) 0 [1, 2, 3, 4, 5, 6])
   -- print( hasPath [(1,2),(3,4)])
-  print (monadd (Just 5) (Just 6))
-  print (cut 3 inv_tup_tree)
-  print
-    (foldr (\x acc -> acc + 1) 0 [1, 2, 3, 4, 5, 6])
+  -- print (monadd (Just 5) (Just 6))
+  let tr = cut 2 inv_tup_tree 
+  let tr' = cut 5 inv_tup_tree 
+  print (tr)
+  -- let tr' = insert' 2 tr 
+  print (inorder tr')
+  -- print
+  --   (foldr (\x acc -> acc + 1) 0 [1, 2, 3, 4, 5, 6])
   
 
   -- print(foldtrie (:) [] Node 'c' [Node 'a' [Leaf 'r', Leaf 't'], Node 'o' [Node 'o' [Leaf 'l']]])
