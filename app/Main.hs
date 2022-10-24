@@ -6,11 +6,19 @@ import Lib (prefixes)
 import qualified Lib
 import Text.Printf (IsChar (toChar))
 import System.IO.Error (isResourceVanishedError)
+import System.Environment
 
 -- lala :: Bool -> String
 -- lala = do someFunc 'R'
 --     | True =  "Alitheia"
 --     | otherwise =  "Psemata"
+
+-- data Either a b = Left a | Right b
+type OnomaHlikia = Either String  Int
+data OnomaHlikia' = OnomaHlikia' {nam :: String,
+                                  lastname ::  String,
+                                  ag :: Int}
+  deriving Show
 
 add :: Integer -> Integer -> Integer -- function declaration
 add x y = x + y
@@ -66,6 +74,15 @@ main = do
   print (tr)
   -- let tr' = insert' 2 tr 
   print (inorder tr')
+
+  -- either :: (a -> c) -> (b -> c) -> Either a b -> c
+  -- let f = either (\l -> "Number") (\r -> r)
+  -- print ( getEnvironement)  
+  mapM_ putStrLn =<< map fst `fmap` getEnvironment
+
+  -- lala :: OnomaHlikia'
+  -- lala ["Alex" "Pappas" 45]
+  -- print (lala.nam)  
   -- print
   --   (foldr (\x acc -> acc + 1) 0 [1, 2, 3, 4, 5, 6])
   
@@ -74,6 +91,5 @@ main = do
 data Person = Person { name :: String,
                        age :: Int }
 data Temp = Kelvin Float | Celsius Float | Fahrenheit Float deriving Show
-
-    
+  
 
